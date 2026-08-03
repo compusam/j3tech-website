@@ -31,7 +31,8 @@ app.use('/*', cors({
     const allowedOrigins = [
       'https://www.j3tech.mx',
       'https://j3tech.mx',
-      'https://j3tech-agent.compusam.workers.dev'
+      'https://j3tech-agent.compusam.workers.dev',
+      'https://j3tech-website.pages.dev'
     ];
     return allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
   },
