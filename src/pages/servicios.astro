@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const yelmoServices = [
+  { name: 'Inteligencia de Mercados', description: 'Analizamos mercados para identificar oportunidades de crecimiento, tendencias y el mejor camino para competir.' },
+  { name: 'Estudios de Viabilidad Exportadora', description: 'Evaluamos si su empresa está preparada para exportar y qué mercados ofrecen mayor potencial de éxito.' },
+  { name: 'Inteligencia Comercial', description: 'Detectamos clientes, sectores y oportunidades para fortalecer sus ventas y expansión comercial.' },
+  { name: 'Inteligencia Competitiva', description: 'Analizamos a su competencia para identificar fortalezas, riesgos y ventajas estratégicas.' },
+  { name: 'Inteligencia Territorial', description: 'Evaluamos regiones, ciudades y países para determinar dónde existen mejores oportunidades de inversión o crecimiento.' },
+  { name: 'Inteligencia del Consumidor', description: 'Comprendemos cómo piensan, compran y deciden sus clientes para mejorar su oferta de valor.' },
+  { name: 'Inteligencia Psicográfica', description: 'Analizamos estilos de vida, valores, intereses y motivaciones para segmentar mejor su mercado.' },
+  { name: 'Inteligencia ESG', description: 'Evaluamos el desempeño ambiental, social y de gobernanza para fortalecer la competitividad y el acceso a nuevos mercados.' },
+  { name: 'Inteligencia de Riesgos', description: 'Identificamos riesgos económicos, operativos, regulatorios y estratégicos antes de que afecten su negocio.' },
+  { name: 'Inteligencia Climática', description: 'Analizamos los impactos del cambio climático y los riesgos ambientales sobre su empresa y su cadena de suministro.' },
+  { name: 'Inteligencia Regulatoria', description: 'Monitoreamos normas, leyes y requisitos nacionales e internacionales que pueden afectar sus operaciones.' },
+  { name: 'Prospectiva', description: 'Anticipamos escenarios futuros para apoyar decisiones estratégicas con visión de largo plazo.' },
+  { name: 'IA aplicada a decisiones', description: 'Utilizamos Inteligencia Artificial para transformar datos en recomendaciones estratégicas y decisiones más inteligentes.' }
+];
+
+const neuroServices = [
+  { name: 'ESG', description: 'Integramos criterios ambientales, sociales y de gobernanza para fortalecer la competitividad y la confianza de inversionistas y clientes.' },
+  { name: 'ODS', description: 'Alineamos la estrategia empresarial con los Objetivos de Desarrollo Sostenible para generar impacto y nuevas oportunidades.' },
+  { name: 'Economía Circular', description: 'Diseñamos estrategias para optimizar recursos, reducir desperdicios y generar mayor valor a partir de los procesos productivos.' },
+  { name: 'Descarbonización', description: 'Desarrollamos estrategias para reducir emisiones y avanzar hacia una operación más eficiente y sostenible.' },
+  { name: 'Huella de Carbono', description: 'Medimos las emisiones de gases de efecto invernadero para establecer planes de reducción y mejora continua.' },
+  { name: 'Huella Hídrica', description: 'Evaluamos el consumo y el impacto del agua para optimizar su uso y fortalecer la sostenibilidad empresarial.' },
+  { name: 'Taxonomía Sustentable', description: 'Identificamos proyectos alineados con criterios de sostenibilidad que faciliten el acceso a financiamiento e inversión responsable.' },
+  { name: 'Gestión del Agua', description: 'Implementamos estrategias para mejorar el uso, aprovechamiento y conservación del recurso hídrico.' },
+  { name: 'Energía', description: 'Identificamos oportunidades para incrementar la eficiencia energética, reducir costos y fortalecer la competitividad.' },
+  { name: 'Residuos', description: 'Diseñamos sistemas para reducir, reutilizar y valorizar residuos, impulsando una gestión más eficiente y responsable.' },
+  { name: 'Cumplimiento Ambiental', description: 'Evaluamos el cumplimiento de la normativa ambiental para reducir riesgos y fortalecer la operación de la empresa.' },
+  { name: 'Reportes ESG', description: 'Elaboramos reportes que comunican el desempeño en sostenibilidad con estándares reconocidos y generan confianza en los grupos de interés.' },
+  { name: 'Estrategias de Financiamiento Verde', description: 'Preparamos proyectos para acceder a fondos, incentivos y financiamiento vinculados con sostenibilidad e innovación.' }
+];
+
+const j3techServices = [
+  { name: 'Consultoría', description: 'Diseñamos soluciones estratégicas personalizadas para impulsar la competitividad y el crecimiento de su organización.' },
+  { name: 'Capacitación', description: 'Desarrollamos programas de formación para fortalecer las competencias técnicas, directivas y estratégicas de su equipo, con reconocimiento STPS y vinculación universitaria.' },
+  { name: 'Conferencias', description: 'Compartimos conocimientos, tendencias y casos de éxito que inspiran la innovación y la toma de decisiones.' },
+  { name: 'Talleres', description: 'Facilitamos experiencias prácticas para desarrollar habilidades y transformar el conocimiento en resultados.' },
+  { name: 'Organización de Eventos', description: 'Diseñamos y coordinamos eventos empresariales, académicos e institucionales que generan aprendizaje y colaboración.' },
+  { name: 'Networking Empresarial', description: 'Creamos espacios para conectar empresas, instituciones y especialistas que impulsan alianzas y nuevas oportunidades de colaboración.' },
+  { name: 'Vinculación', description: 'Conectamos empresas con organismos, universidades, gobiernos e instituciones para fortalecer su desarrollo y competitividad.' },
+  { name: 'Implementación Tecnológica', description: 'Integramos herramientas tecnológicas e inteligencia artificial para optimizar procesos y acelerar la transformación empresarial.' },
+  { name: 'Gestión de Proyectos', description: 'Planeamos, coordinamos y damos seguimiento a proyectos estratégicos para asegurar su correcta ejecución y cumplimiento de objetivos.' }
+];
+---
+
+<BaseLayout title="Servicios - J3 TECH" description="Inteligencia de Mercados, Sistema Neuro Sostenible y Consultoría Estratégica">
+  <Navigation />
+
+  <main class="services-page">
+    <div class="container">
+      <h1 class="page-title">Nuestros Servicios</h1>
+      <p class="page-subtitle">Un ecosistema de soluciones para impulsar su organización</p>
+
+      <section class="service-section">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2>YELMO®</h2>
+            <p class="section-description">Inteligencia de Mercados e Inteligencia Empresarial</p>
+          </div>
+        </div>
+        <div class="services-grid">
+          {yelmoServices.map((service) => (
+            <div class="service-card">
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="service-section">
+        <div class="section-header">
+          <div class="section-icon green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2>Sistema Neuro Sostenible®</h2>
+            <p class="section-description">La metodología para convertir la sostenibilidad en competitividad</p>
+          </div>
+        </div>
+        <div class="services-grid">
+          {neuroServices.map((service) => (
+            <div class="service-card">
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="service-section">
+        <div class="section-header">
+          <div class="section-icon purple">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div>
+            <h2>J3 TECH</h2>
+            <p class="section-description">Implementa las estrategias y las convierte en resultados</p>
+          </div>
+        </div>
+        <div class="services-grid">
+          {j3techServices.map((service) => (
+            <div class="service-card">
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <h2>¿Listo para transformar su organización?</h2>
+        <p>Contáctenos para descubrir cómo podemos ayudarle a alcanzar sus objetivos estratégicos.</p>
+        <a href={`${base}about/`} class="btn btn-primary">
+          Conózcanos
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .services-page {
+    min-height: 100vh;
+    padding: calc(var(--nav-height) + 2rem) 2rem 5rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    text-align: center;
+    color: var(--color-text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-section {
+    margin-bottom: 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .section-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 1rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .section-icon.green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+  }
+
+  .section-icon.purple {
+    background: rgba(168, 85, 247, 0.1);
+    color: var(--color-accent-purple);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .section-description {
+    color: var(--color-text-dim);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    color: var(--color-text-dim);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cta-section {
+    text-align: center;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+  }
+
+  .cta-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--color-text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn-primary:hover {
+    background: #2563EB;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  }
+
+  .btn-primary svg {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .services-page {
+      padding-top: calc(var(--nav-height) + 1rem);
+    }
+
+    .section-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

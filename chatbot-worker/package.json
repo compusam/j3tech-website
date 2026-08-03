@@ -1,0 +1,19 @@
+{
+  "name": "j3tech-agent-worker",
+  "version": "1.0.0",
+  "description": "J3 TECH Agent - Cloudflare Worker con AI",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260730.1",
+    "typescript": "^5.3.3",
+    "wrangler": "^4.118.0"
+  }
+}

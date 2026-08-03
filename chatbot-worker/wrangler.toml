@@ -1,0 +1,19 @@
+name = "j3tech-agent"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "j3tech-chatbot-db"
+database_id = "80da0512-6152-4dec-b0d3-5644925d53cf"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "5cc4b0abd6c2481382a7be1f3e9f4b54"
+
+[vars]
+ENVIRONMENT = "production"

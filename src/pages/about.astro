@@ -1,0 +1,381 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Sobre Nosotros - J3 TECH" description="Julia López, fundadora y CEO de J3 TECH">
+  <script src="https://cdn.jsdelivr.net/npm/@mux/mux-player" defer></script>
+  <Navigation />
+
+  <main class="about-page">
+    <div class="container">
+      <h1 class="page-title">Sobre Nosotros</h1>
+
+      <div class="content-grid">
+        <section class="content-section founder-section">
+          <div class="founder-grid">
+            <div class="founder-image">
+              <div class="avatar-jl">
+                <span>JL</span>
+              </div>
+            </div>
+            <div class="founder-info">
+              <h2>Julia López</h2>
+              <p class="founder-title">Fundadora y CEO de J3 TECH</p>
+              <p>
+                Creadora de <strong>Sistema Neuro Sostenible®</strong> y <strong>YELMO®</strong>, un ecosistema de
+                inteligencia empresarial que impulsa la transformación de organizaciones
+                mediante inteligencia estratégica, sostenibilidad e innovación.
+              </p>
+              <p>
+                Su propósito es ayudar a empresas, gobiernos e instituciones a anticipar el futuro,
+                tomar mejores decisiones y generar ventajas competitivas sostenibles.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section video-section">
+          <h2>Nuestra Visión</h2>
+          <div class="video-container">
+            <mux-player
+              playback-id="zrPVRDj1D5TWyh802NNVFIexon2daH8ULmfmJtzz001fI"
+              autoplay="muted"
+              loop
+              class="video-player"
+            ></mux-player>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Nuestra Fortaleza</h2>
+          <p>
+            Nuestra fortaleza radica en un ecosistema de alianzas estratégicas que conecta
+            <strong>conocimiento, tecnología y experiencia multidisciplinaria</strong>.
+          </p>
+          <p>
+            A través de J3 TECH, Sistema Neuro Sostenible® y YELMO®, articulamos capacidades
+            especializadas para diseñar e implementar soluciones que transforman los desafíos
+            empresariales en oportunidades de crecimiento, competitividad e innovación sostenible.
+          </p>
+        </section>
+
+        <section class="content-section">
+          <h2>Nuestras Líneas de Negocio</h2>
+          <div class="what-i-do-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <h3>YELMO®</h3>
+              <p>Inteligencia de Mercados e Inteligencia Empresarial para anticipar oportunidades y riesgos.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Sistema Neuro Sostenible®</h3>
+              <p>Metodología para convertir la sostenibilidad en competitividad empresarial.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <h3>J3 TECH</h3>
+              <p>Implementación de estrategias con consultoría, capacitación y tecnología.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section cta-section">
+          <h2>Conecte con Nosotros</h2>
+          <p>¿Interesado en transformar su organización con inteligencia estratégica y sostenible?</p>
+          <div class="contact-buttons">
+            <a href={`${base}servicios/`} class="btn btn-primary">
+              Ver Servicios
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href={`${base}blog/`} class="btn btn-secondary">Centro de Inteligencia</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-page {
+    min-height: 100vh;
+    padding: calc(var(--nav-height) + 2rem) 2rem 5rem;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .content-section {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .content-section p {
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    margin-bottom: 1rem;
+  }
+
+  .content-section p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .what-i-do-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.25rem;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .service-icon.green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+  }
+
+  .service-icon.purple {
+    background: rgba(168, 85, 247, 0.1);
+    color: var(--color-accent-purple);
+  }
+
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .founder-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .avatar-jl {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+  }
+
+  .avatar-jl span {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .founder-info h2 {
+    margin-bottom: 0.25rem;
+  }
+
+  .founder-title {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+    margin-bottom: 1rem !important;
+  }
+
+  .video-section {
+    text-align: center;
+  }
+
+  .video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+  }
+
+  .video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-section p {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn-primary:hover {
+    background: #2563EB;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  }
+
+  .btn-primary svg {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .about-page {
+      padding-top: calc(var(--nav-height) + 1rem);
+    }
+
+    .founder-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .avatar-jl {
+      width: 120px;
+      height: 120px;
+    }
+
+    .avatar-jl span {
+      font-size: 2.5rem;
+    }
+
+    .what-i-do-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+</style>
