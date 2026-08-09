@@ -120,8 +120,37 @@ src/
 
 - [Astro](https://astro.build/) - Static site generator
 - [Three.js](https://threejs.org/) - 3D graphics
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [TypeScript](https://www.typescript.org/) - Type safety
 - Google Fonts (Space Grotesk + DM Sans)
+
+## Deployment
+
+This site is hosted on **Cloudflare Pages**. The Pages project (`j3tech-website`) is **not connected to a Git provider**, so deployments must be triggered manually with Wrangler after pushing changes.
+
+### Deploying changes
+
+1. Build the site:
+   ```bash
+   npm run build
+   ```
+2. Commit your changes and push to `main`:
+   ```bash
+   git add -A
+   git commit -m "Describe the change"
+   git push origin main
+   ```
+3. Deploy the `dist/` folder to Cloudflare Pages:
+   ```bash
+   npx wrangler pages deploy dist --project-name j3tech-website --branch main
+   ```
+
+### Important notes for AI agents / maintainers
+
+- Production URL: `https://j3tech-website.pages.dev`
+- Custom domain (when configured in Cloudflare): `https://j3tech.mx`
+- Wrangler uses the locally authenticated account. Run `npx wrangler whoami` to verify you are logged in before deploying.
+- The GitHub Actions workflow in `.github/workflows/deploy.yml` targets GitHub Pages on the `working` branch and is **not used** for Cloudflare Pages deployments.
+- The chatbot backend is a separate Cloudflare Worker located in `chatbot-worker/` with its own deployment process.
 
 ## Support
 
