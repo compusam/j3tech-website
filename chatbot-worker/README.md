@@ -308,8 +308,8 @@ El chatbot tiene información sobre:
 - Inteligencia de Mercados, Competitiva, ESG, Climática, etc.
 
 ### Sistema Neuro Sostenible®
-- 13 soluciones de sostenibilidad
-- ESG, ODS, Economía Circular, Huella de Carbono, etc.
+- 11 soluciones de sostenibilidad
+- ESG, ODS, Economía Circular, etc.
 
 ### J3 TECH - Implementación
 - 9 servicios de implementación
