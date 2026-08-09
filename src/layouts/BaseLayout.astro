@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
-import ThreeBackground from '../components/ThreeBackground.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 
 interface Props {
@@ -33,13 +32,27 @@ const {
   </head>
   <body>
     <div class="cursor-follower"></div>
-    <ThreeBackground />
+    <div class="site-background" aria-hidden="true"></div>
     <div id="page-content">
       <slot />
     </div>
     <ChatWidget />
 
     <style>
+      .site-background {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background-image:
+          linear-gradient(rgba(2, 6, 23, 0.55), rgba(15, 23, 42, 0.55)),
+          url('/images/j3tech/hero-bg.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        pointer-events: none;
+      }
+
       #page-content {
         position: relative;
         z-index: 1;

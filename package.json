@@ -38,7 +38,8 @@
     "@playwright/test": "^1.62.1",
     "@types/three": "^0.184.0",
     "playwright": "^1.62.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.118.0"
   },
   "engines": {
     "node": ">=22.0.0"
