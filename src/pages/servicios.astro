@@ -25,8 +25,6 @@ const neuroServices = [
   { name: 'ODS', description: 'Alineamos la estrategia empresarial con los Objetivos de Desarrollo Sostenible para generar impacto y nuevas oportunidades.' },
   { name: 'Economía Circular', description: 'Diseñamos estrategias para optimizar recursos, reducir desperdicios y generar mayor valor a partir de los procesos productivos.' },
   { name: 'Descarbonización', description: 'Desarrollamos estrategias para reducir emisiones y avanzar hacia una operación más eficiente y sostenible.' },
-  { name: 'Huella de Carbono', description: 'Medimos las emisiones de gases de efecto invernadero para establecer planes de reducción y mejora continua.' },
-  { name: 'Huella Hídrica', description: 'Evaluamos el consumo y el impacto del agua para optimizar su uso y fortalecer la sostenibilidad empresarial.' },
   { name: 'Taxonomía Sustentable', description: 'Identificamos proyectos alineados con criterios de sostenibilidad que faciliten el acceso a financiamiento e inversión responsable.' },
   { name: 'Gestión del Agua', description: 'Implementamos estrategias para mejorar el uso, aprovechamiento y conservación del recurso hídrico.' },
   { name: 'Energía', description: 'Identificamos oportunidades para incrementar la eficiencia energética, reducir costos y fortalecer la competitividad.' },
@@ -59,13 +57,7 @@ const j3techServices = [
 
       <section class="service-section">
         <div class="section-header">
-          <div class="section-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-          </div>
+          <img class="section-logo" src={`${base}images/j3tech/logo-yelmo.png`} alt="YELMO" loading="lazy" />
           <div>
             <h2>YELMO®</h2>
             <p class="section-description">Inteligencia de Mercados e Inteligencia Empresarial</p>
@@ -83,11 +75,7 @@ const j3techServices = [
 
       <section class="service-section">
         <div class="section-header">
-          <div class="section-icon green">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
+          <img class="section-logo" src={`${base}images/j3tech/logo-sns.png`} alt="Sistema Neuro Sostenible" loading="lazy" />
           <div>
             <h2>Sistema Neuro Sostenible®</h2>
             <p class="section-description">La metodología para convertir la sostenibilidad en competitividad</p>
@@ -105,11 +93,7 @@ const j3techServices = [
 
       <section class="service-section">
         <div class="section-header">
-          <div class="section-icon purple">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
+          <img class="section-logo" src={`${base}images/j3tech/logo-j3.jpg`} alt="J3 TECH" loading="lazy" />
           <div>
             <h2>J3 TECH</h2>
             <p class="section-description">Implementa las estrategias y las convierte en resultados</p>
@@ -180,26 +164,15 @@ const j3techServices = [
     border-bottom: 1px solid var(--color-border);
   }
 
-  .section-icon {
-    width: 64px;
+  .section-logo {
     height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 1rem;
-    color: var(--color-primary);
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
     flex-shrink: 0;
-  }
-
-  .section-icon.green {
-    background: rgba(34, 197, 94, 0.1);
-    color: #22c55e;
-  }
-
-  .section-icon.purple {
-    background: rgba(168, 85, 247, 0.1);
-    color: var(--color-accent-purple);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 0.75rem;
+    padding: 0.4rem 0.75rem;
   }
 
   .section-header h2 {

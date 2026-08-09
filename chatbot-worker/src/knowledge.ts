@@ -32,14 +32,12 @@ export const COMPANY_INFO = {
     {
       name: "Sistema Neuro Sostenible®",
       subtitle: "La metodología para convertir la sostenibilidad en competitividad",
-      description: "ESG, ODS, economía circular, huella de carbono y estrategias de financiamiento verde para transformar su organización.",
+      description: "ESG, ODS, economía circular y estrategias de financiamiento verde para transformar su organización.",
       services: [
         { name: "ESG", description: "Integramos criterios ambientales, sociales y de gobernanza para fortalecer la competitividad y la confianza de inversionistas y clientes." },
         { name: "ODS", description: "Alineamos la estrategia empresarial con los Objetivos de Desarrollo Sostenible para generar impacto y nuevas oportunidades." },
         { name: "Economía Circular", description: "Diseñamos estrategias para optimizar recursos, reducir desperdicios y generar mayor valor a partir de los procesos productivos." },
         { name: "Descarbonización", description: "Desarrollamos estrategias para reducir emisiones y avanzar hacia una operación más eficiente y sostenible." },
-        { name: "Huella de Carbono", description: "Medimos las emisiones de gases de efecto invernadero para establecer planes de reducción y mejora continua." },
-        { name: "Huella Hídrica", description: "Evaluamos el consumo y el impacto del agua para optimizar su uso y fortalecer la sostenibilidad empresarial." },
         { name: "Taxonomía Sustentable", description: "Identificamos proyectos alineados con criterios de sostenibilidad que faciliten el acceso a financiamiento e inversión responsable." },
         { name: "Gestión del Agua", description: "Implementamos estrategias para mejorar el uso, aprovechamiento y conservación del recurso hídrico." },
         { name: "Energía", description: "Identificamos oportunidades para incrementar la eficiencia energética, reducir costos y fortalecer la competitividad." },
