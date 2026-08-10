@@ -6,10 +6,50 @@ import Hero from '../components/Hero.astro';
 import BlogCard from '../components/BlogCard.astro';
 
 const base = import.meta.env.BASE_URL;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://j3tech.mx';
 const allBlogPosts = await getCollection('blog');
 const recentPosts = allBlogPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': 'J3 TECH',
+  'url': siteUrl,
+  'description': 'Ecosistema de inteligencia empresarial que impulsa la transformación de organizaciones mediante inteligencia estratégica, sostenibilidad e innovación.',
+  'logo': `${siteUrl}/images/j3tech/logo-j3.jpg`,
+  'founder': {
+    '@type': 'Person',
+    'name': 'Julia López',
+    'jobTitle': 'Fundadora y CEO de J3 TECH',
+  },
+  'areaServed': 'México',
+  'knowsAbout': [
+    'Inteligencia de Mercados',
+    'Sostenibilidad Empresarial',
+    'ESG',
+    'Economía Circular',
+    'Consultoría Estratégica',
+    'IA Aplicada',
+    'Cadenas de Suministro',
+    'Geopolítica',
+    'T-MEC',
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  'name': 'J3 TECH',
+  'url': siteUrl,
+  'description': 'Ecosistema de inteligencia empresarial que impulsa la transformación de organizaciones mediante inteligencia estratégica, sostenibilidad e innovación.',
+  'inLanguage': 'es-MX',
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'J3 TECH',
+  },
+};
 
 const services = [
   {
@@ -33,10 +73,15 @@ const services = [
 ];
 ---
 
-<BaseLayout title="J3 TECH - Inteligencia Estratégica & Sostenibilidad">
+<BaseLayout
+  title="J3 TECH — Inteligencia Estratégica & Sostenibilidad"
+  description="Ecosistema de inteligencia empresarial que impulsa la transformación de organizaciones mediante inteligencia estratégica, sostenibilidad e innovación. YELMO® y Sistema Neuro Sostenible®."
+  schemas={[organizationSchema, websiteSchema]}
+>
   <Navigation />
   <Hero />
 
+  <main>
   <section class="services-preview">
     <div class="container">
       <h2 class="section-title">Nuestras Soluciones</h2>
@@ -91,6 +136,7 @@ const services = [
       </div>
     </div>
   </section>
+  </main>
 </BaseLayout>
 
 <style>

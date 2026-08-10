@@ -4,6 +4,8 @@ description: 'Sostenibilidad, eficiencia energética y economía circular como e
 pubDate: 2026-08-09
 heroImage: '/images/blog/art-resiliencia-800.webp'
 tags: ['resiliencia', 'sostenibilidad', 'eficiencia energética', 'economía circular']
+author: 'Julia López'
+authorRole: 'Fundadora y CEO de J3 TECH'
 ---
 
 El reciente anuncio de México sobre la imposición de aranceles de hasta 50 % a más de 1,400 productos provenientes de China y otros países asiáticos, analizado por el Financial Times, no es un hecho aislado. Representa un cambio estructural en el comercio internacional, con impactos directos en las empresas mexicanas y, de forma particular, en aquellas ubicadas en Jalisco y Tlajomulco de Zúñiga.

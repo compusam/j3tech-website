@@ -11,6 +11,8 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    author: z.string().default('Julia López'),
+    authorRole: z.string().default('Fundadora y CEO de J3 TECH'),
   }),
 });
 

@@ -3,9 +3,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 
 const base = import.meta.env.BASE_URL;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://j3tech.mx';
+const aboutUrl = `${siteUrl}/about/`;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': 'J3 TECH',
+  'url': siteUrl,
+  'logo': `${siteUrl}/images/j3tech/logo-j3.jpg`,
+  'description': 'Ecosistema de inteligencia empresarial que impulsa la transformación de organizaciones mediante inteligencia estratégica, sostenibilidad e innovación. YELMO® y Sistema Neuro Sostenible®.',
+  'email': 'informacion@compusam.com',
+  'areaServed': 'México',
+  'founder': {
+    '@type': 'Person',
+    'name': 'Julia López',
+    'jobTitle': 'Fundadora y CEO de J3 TECH',
+  },
+  'knowsAbout': [
+    'Inteligencia de Mercados',
+    'Sostenibilidad Empresarial',
+    'ESG',
+    'Economía Circular',
+    'Consultoría Estratégica',
+    'IA Aplicada',
+  ],
+};
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  'name': 'Julia López',
+  'jobTitle': 'Fundadora y CEO de J3 TECH',
+  'worksFor': {
+    '@type': 'Organization',
+    'name': 'J3 TECH',
+    'url': siteUrl,
+  },
+  'description': 'Creadora de Sistema Neuro Sostenible® y YELMO®, un ecosistema de inteligencia empresarial que impulsa la transformación de organizaciones mediante inteligencia estratégica, sostenibilidad e innovación.',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': siteUrl },
+    { '@type': 'ListItem', 'position': 2, 'name': 'Sobre Nosotros', 'item': aboutUrl },
+  ],
+};
 ---
 
-<BaseLayout title="Sobre Nosotros - J3 TECH" description="Julia López, fundadora y CEO de J3 TECH">
+<BaseLayout
+  title="Sobre Nosotros | J3 TECH"
+  description="Julia López, fundadora y CEO de J3 TECH. Creadora de Sistema Neuro Sostenible® y YELMO®. Inteligencia estratégica, sostenibilidad e innovación empresarial en México."
+  schemas={[organizationSchema, personSchema, breadcrumbSchema]}
+>
   <script src="https://cdn.jsdelivr.net/npm/@mux/mux-player" defer></script>
   <Navigation />
 

@@ -2,33 +2,87 @@
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import ChatWidget from '../components/ChatWidget.astro';
+import JsonLd from '../components/JsonLd.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  schemas?: Array<Record<string, any>>;
+  articleMeta?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    author?: string;
+    section?: string;
+    tags?: string[];
+  };
 }
 
 const base = import.meta.env.BASE_URL;
-const {
-  title = 'Darkness - Dark Theme',
-  description = 'An intense motion-filled dark theme Astro site'
-} = Astro.props;
----
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://j3tech.mx';
 
+const defaultTitle = 'J3 TECH — Inteligencia Estratégica & Sostenibilidad';
+const defaultDesc = 'Ecosistema de inteligencia empresarial que impulsa la transformación de organizaciones mediante inteligencia estratégica, sostenibilidad e innovación. YELMO® y Sistema Neuro Sostenible®.';
+
+const {
+  title = defaultTitle,
+  description = defaultDesc,
+  image = '/images/j3tech/hero-bg.webp',
+  type = 'website',
+  noindex = false,
+  schemas = [],
+  articleMeta,
+} = Astro.props;
+
+const canonical = Astro.url.href;
+const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).href;
+---
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="canonical" href={canonical} />
     <meta name="generator" content={Astro.generator} />
-    <!-- Google Fonts: Space Grotesk + DM Sans -->
+
+    <meta property="og:site_name" content="J3 TECH" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {articleMeta && (
+      <>
+        <meta property="article:published_time" content={articleMeta.publishedTime} />
+        {articleMeta.modifiedTime && <meta property="article:modified_time" content={articleMeta.modifiedTime} />}
+        {articleMeta.author && <meta property="article:author" content={articleMeta.author} />}
+        {articleMeta.section && <meta property="article:section" content={articleMeta.section} />}
+        {articleMeta.tags?.map(tag => <meta property="article:tag" content={tag} />)}
+      </>
+    )}
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <title>{title}</title>
     <slot name="head" />
+
+    {schemas.map(schema => <JsonLd data={schema} />)}
+
     <ClientRouter />
   </head>
   <body>
@@ -58,7 +112,6 @@ const {
         z-index: 1;
       }
 
-      /* Custom cursor */
       .cursor-follower {
         width: 20px;
         height: 20px;
@@ -86,7 +139,6 @@ const {
     </style>
 
     <script>
-      // Custom cursor: mousemove は1度だけ登録
       if (!(window as any).__cursorFollowerInitialized) {
         (window as any).__cursorFollowerInitialized = true;
         document.addEventListener('mousemove', (e) => {
@@ -97,7 +149,6 @@ const {
         });
       }
 
-      // ホバー拡大はページ遷移後にも再バインドする必要がある
       const bindInteractiveHover = () => {
         const cursor = document.querySelector('.cursor-follower') as HTMLElement | null;
         if (!cursor) return;

@@ -4,6 +4,8 @@ description: 'La geopolítica ha entrado a las salas de decisión empresarial. M
 pubDate: 2026-08-09
 heroImage: '/images/blog/art-geopolitica-800.webp'
 tags: ['geopolítica', 'cadenas de suministro', 'T-MEC', 'competitividad']
+author: 'Julia López'
+authorRole: 'Fundadora y CEO de J3 TECH'
 ---
 
 La historia nos recuerda que el poder económico cambia, las alianzas se transforman y las reglas del comercio evolucionan. Para las empresas, comprender estos movimientos ya no es cultura general: es inteligencia estratégica.
