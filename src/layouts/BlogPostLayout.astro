@@ -217,6 +217,47 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
     color: var(--color-text-dim);
   }
 
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9375rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .post-content :global(thead) {
+    background: linear-gradient(135deg, var(--color-accent-purple), var(--color-primary));
+    color: white;
+  }
+
+  .post-content :global(th) {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-family: var(--font-heading);
+  }
+
+  .post-content :global(td) {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-dim);
+    vertical-align: top;
+  }
+
+  .post-content :global(tbody tr:nth-child(even)) {
+    background: rgba(59, 130, 246, 0.05);
+  }
+
+  .post-content :global(tbody tr:hover) {
+    background: rgba(168, 85, 247, 0.1);
+  }
+
+  .post-content :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
   @keyframes fadeInDown {
     from {
       opacity: 0;
