@@ -2,6 +2,7 @@
 title: 'De la geopolítica a la oportunidad: el nuevo reto de las empresas mexicanas en las cadenas de suministro'
 description: 'La geopolítica ha entrado a las salas de decisión empresarial. México tiene una oportunidad extraordinaria dentro del bloque norteamericano, pero requiere preparación estratégica.'
 pubDate: 2026-08-09
+heroImage: '/images/blog/art-geopolitica-800.webp'
 tags: ['geopolítica', 'cadenas de suministro', 'T-MEC', 'competitividad']
 ---
 

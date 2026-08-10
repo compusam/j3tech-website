@@ -2,6 +2,7 @@
 title: 'Resiliencia empresarial en el nuevo orden comercial'
 description: 'Sostenibilidad, eficiencia energética y economía circular como estrategia de negocio ante los nuevos aranceles y reglas del comercio internacional.'
 pubDate: 2026-08-09
+heroImage: '/images/blog/art-resiliencia-800.webp'
 tags: ['resiliencia', 'sostenibilidad', 'eficiencia energética', 'economía circular']
 ---
 

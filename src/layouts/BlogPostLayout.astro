@@ -8,10 +8,19 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date | undefined;
   tags?: string[] | undefined;
+  heroImage?: string | undefined;
 }
 
 const base = import.meta.env.BASE_URL;
-const { title, description, pubDate, updatedDate, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, heroImage } = Astro.props;
+
+const heroSrcSet = heroImage
+  ? heroImage
+      .replace('-800.webp', '-400.webp') + ' 400w, ' +
+      heroImage + ' 800w, ' +
+      heroImage.replace('-800.webp', '-1200.webp') + ' 1200w, ' +
+      heroImage.replace('-800.webp', '-1600.webp') + ' 1600w'
+  : undefined;
 
 const formattedPubDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -35,6 +44,12 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {heroImage && (
+      <>
+        <meta property="og:image" content={new URL(heroImage, Astro.url).href} />
+        <meta name="twitter:image" content={new URL(heroImage, Astro.url).href} />
+      </>
+    )}
   </Fragment>
 
   <Navigation />
@@ -58,6 +73,21 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
           </div>
         )}
       </header>
+
+      {heroImage && heroSrcSet && (
+        <div class="post-hero">
+          <img
+            src={heroImage}
+            alt={title}
+            width="800"
+            height="450"
+            loading="eager"
+            decoding="async"
+            srcset={heroSrcSet}
+            sizes="(max-width: 800px) 100vw, 800px"
+          />
+        </div>
+      )}
 
       <div class="post-content">
         <slot />
@@ -284,6 +314,22 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
 
   .post-content :global(tbody tr:last-child td) {
     border-bottom: none;
+  }
+
+  .post-hero {
+    margin: 2rem 0 3rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+  }
+
+  .post-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   .share-section {
